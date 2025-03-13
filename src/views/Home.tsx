@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import CategoryComponent from "../shared/CategoryComponent";
 import NavbarComponent from "../shared/NavbarComponent";
 import PromotionsCarousel from "../shared/PromotionsCarousel";
 
@@ -9,6 +10,7 @@ const HomeView = () => {
     <View style={styles.container}>
       <NavbarComponent/>
       <PromotionsCarousel/>
+      <CategoryComponent/>
     </View>
   );
 }
