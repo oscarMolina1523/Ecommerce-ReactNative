@@ -6,8 +6,8 @@ const categories = [
   { id: '1', name: 'shirt' },
   { id: '2', name: 'bag' },
   { id: '3', name: 'glasses' },
-  { id: '4', name: 'glasses' },
-  { id: '5', name: 'glasses' },
+  { id: '4', name: 'star' },
+  { id: '5', name: 'camera' },
 ];
 const CategoryComponent = () => {
   const flatListRef = useRef<FlatList>(null);
