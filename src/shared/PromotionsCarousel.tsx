@@ -13,9 +13,9 @@ const carouselWidth = width * 0.9; // 90% del ancho de la pantalla
 // ];
 
 const promotions = [
-  { id: '1', title: 'Promotion 1', color: '#F17547' },
-  { id: '2', title: 'Promotion 2', color: '#47F1A0' },
-  { id: '3', title: 'Promotion 3', color: '#4747F1' },
+  { id: '1', title: '20% OFF DURING THE WEEKEND', color: '#F17547',imageUrl:'https://i.ibb.co/Xr74J5Vt/two-bags.webp'  },
+  { id: '2', title: 'BUY ONE GET ONE FREE', color: '#1383F1', imageUrl:'https://i.ibb.co/hJfsTWQQ/bags.webp' },
+  { id: '3', title: 'FREE SHIPPING ON ORDERS OVER $50', color: '#4747F1', imageUrl:'https://i.ibb.co/hJfsTWQQ/bags.webp' },
 ];
 
 const PromotionsCarousel = () => {
@@ -32,7 +32,7 @@ const PromotionsCarousel = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.slide}>
-            <PromotionComponent title={item.title} backgroundColor={item.color} />
+            <PromotionComponent title={item.title} backgroundColor={item.color} imageUrl={item.imageUrl} />
           </View>
         )}
       />
