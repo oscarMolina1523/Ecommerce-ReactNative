@@ -15,11 +15,12 @@ const HomeView = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection:'column',
     width: '100%',
-    backgroundColor: '#FF0000',
-    padding:2,
+    // backgroundColor: '#FF0000',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    paddingTop:40,
   },
 });
 
