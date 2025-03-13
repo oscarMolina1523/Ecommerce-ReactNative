@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, } from "react-native";
+import { StyleSheet, View } from "react-native";
 import NavbarComponent from "../shared/NavbarComponent";
+import PromotionsCarousel from "../shared/PromotionsCarousel";
 
 
 const HomeView = () => {
   return (
     <View style={styles.container}>
       <NavbarComponent/>
-      <Text>This is the home</Text>
+      <PromotionsCarousel/>
     </View>
   );
 }
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop:40,
+    gap:20,
   },
 });
 
