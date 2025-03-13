@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent:'center',
-    width:'90%'
+    width:'90%',
   },
   slide: {
     width:carouselWidth,
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     resizeMode: "cover",
+    borderRadius: 16,
   },
 });
 
