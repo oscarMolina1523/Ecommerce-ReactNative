@@ -18,12 +18,12 @@ const CategoryComponent = () => {
         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#F17547' }}>See all</Text>
       </View>
       <FlatList
-        style={styles.containerData}
         ref={flatListRef}
         data={categories}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
+        nestedScrollEnabled={true}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
@@ -39,9 +39,11 @@ const CategoryComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
+    display:'flex',
+    flexDirection:'column',
     alignItems: "center",
     justifyContent: 'center',
-    width: '90%',
+    width: '100%',
     gap: 20
   },
   containerHeader: {
@@ -50,11 +52,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
-  },
-  containerData: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
   },
   item: {
     display: 'flex',
@@ -66,6 +63,7 @@ const styles = StyleSheet.create({
     width: 100,
     borderWidth: 2,
     borderRadius: 8,
+    marginHorizontal: 4,
   }
 });
 
