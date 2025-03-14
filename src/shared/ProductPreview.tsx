@@ -28,17 +28,18 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: 300,
-    width: '100%',
+    height: 240,
+    width: '48%',
     backgroundColor: '#F8F8F8',
-    borderRadius: 8,
+    borderRadius: 16,
     padding: 10,
     alignItems:'center',
     justifyContent:'flex-start',
+    gap:4
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     resizeMode: 'contain',
   },
   containerChild: {
