@@ -6,16 +6,10 @@ const { width } = Dimensions.get("window");
 //this is for calculate the 90% of the window
 const carouselWidth = width * 0.9; // 90% del ancho de la pantalla
 
-// const images = [
-//   { uri: "https://los40.com/resizer/v2/V2SI7IAVKZD3NJILFWJMRE7JCA.jpg?auth=230f5aefd79e52816bc47f91444bbe7ce6b3a34ea36f3fbeca195d4fe01924b6&quality=70&width=1200&height=675&smart=true" },
-//   { uri: "https://los40.com/resizer/v2/V2SI7IAVKZD3NJILFWJMRE7JCA.jpg?auth=230f5aefd79e52816bc47f91444bbe7ce6b3a34ea36f3fbeca195d4fe01924b6&quality=70&width=1200&height=675&smart=true" },
-//   { uri: "https://los40.com/resizer/v2/V2SI7IAVKZD3NJILFWJMRE7JCA.jpg?auth=230f5aefd79e52816bc47f91444bbe7ce6b3a34ea36f3fbeca195d4fe01924b6&quality=70&width=1200&height=675&smart=true" },
-// ];
-
 const promotions = [
-  { id: '1', title: '20% OFF DURING THE WEEKEND', color: '#F17547',imageUrl:'https://i.ibb.co/Xr74J5Vt/two-bags.webp'  },
-  { id: '2', title: 'BUY ONE GET ONE FREE', color: '#1383F1', imageUrl:'https://i.ibb.co/hJfsTWQQ/bags.webp' },
-  { id: '3', title: 'FREE SHIPPING ON ORDERS OVER $50', color: '#4747F1', imageUrl:'https://i.ibb.co/hJfsTWQQ/bags.webp' },
+  { id: '1', title: '20% OFF DURING THE WEEKEND', color: '#F17547', imageUrl: 'https://i.ibb.co/Xr74J5Vt/two-bags.webp' },
+  { id: '2', title: 'BUY ONE GET ONE FREE', color: '#1383F1', imageUrl: 'https://i.ibb.co/hJfsTWQQ/bags.webp' },
+  { id: '3', title: 'FREE SHIPPING ON ORDERS OVER $50', color: '#4747F1', imageUrl: 'https://i.ibb.co/hJfsTWQQ/bags.webp' },
 ];
 
 const PromotionsCarousel = () => {
@@ -28,6 +22,8 @@ const PromotionsCarousel = () => {
         data={promotions}
         horizontal
         pagingEnabled
+        snapToAlignment="center"
+        snapToInterval={width} 
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
@@ -35,6 +31,7 @@ const PromotionsCarousel = () => {
             <PromotionComponent title={item.title} backgroundColor={item.color} imageUrl={item.imageUrl} />
           </View>
         )}
+        contentContainerStyle={{ gap: 4 }}
       />
     </View>
   );
@@ -42,21 +39,17 @@ const PromotionsCarousel = () => {
 
 const styles = StyleSheet.create({
   container: {
+    display:'flex',
+    // flexDirection:'row',
     alignItems: "center",
-    justifyContent:'center',
-    width:'90%',
+    justifyContent: 'center',
+    width: '100%',
   },
   slide: {
-    width:carouselWidth,
+    width: carouselWidth,
     justifyContent: "center",
     alignItems: "center",
   },
-  // image: {
-  //   width: "100%",
-  //   height: 200,
-  //   resizeMode: "cover",
-  //   borderRadius: 16,
-  // },
 });
 
 export default PromotionsCarousel;
