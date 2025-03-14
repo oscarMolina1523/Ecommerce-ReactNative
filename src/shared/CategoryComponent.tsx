@@ -7,6 +7,7 @@ const categories = [
   { id: '2', name: 'bag' },
   { id: '3', name: 'glasses' },
   { id: '4', name: 'star' },
+  { id: '7', name: 'star' },
   { id: '5', name: 'camera' },
 ];
 const CategoryComponent = () => {
@@ -23,11 +24,11 @@ const CategoryComponent = () => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        nestedScrollEnabled={true}
+        snapToAlignment="center"
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Ionicons size={50} style={{color:'#919191'}} name={item.name} />
+            <Ionicons size={40} style={{color:'#919191'}} name={item.name} />
           </View>
         )}
         // this is for add and gap between the elements
@@ -59,8 +60,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#D8D3D3',
-    height: 100,
-    width: 100,
+    height: 70,
+    width: 70,
     borderWidth: 2,
     borderRadius: 8,
     marginHorizontal: 4,
