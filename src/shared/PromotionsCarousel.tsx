@@ -31,7 +31,7 @@ const PromotionsCarousel = () => {
             <PromotionComponent title={item.title} backgroundColor={item.color} imageUrl={item.imageUrl} />
           </View>
         )}
-        contentContainerStyle={{ gap: 4 }}
+        // contentContainerStyle={{ gap: 4 }}
       />
     </View>
   );
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     width: carouselWidth,
     justifyContent: "center",
     alignItems: "center",
+    marginHorizontal: 4,
   },
 });
 
