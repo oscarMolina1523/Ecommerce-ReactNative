@@ -5,11 +5,8 @@ import { StyleSheet, Text, View } from "react-native";
 const NavbarComponent = () => {
   return (
     <View style={styles.container}>
-      <Ionicons size={30} name="menu" />
-      <View>
-        <Text style={styles.text}>Hello Fola</Text>
-        <Text>Lets start shopping<Ionicons name="hand-left-outline" color="orange"/> </Text>
-      </View>
+      <Text style={styles.text}>Hello Fola<Ionicons name="hand-left-outline" color="orange" size={20} /></Text>
+      <Text>Lets start shopping</Text>
     </View>
   );
 }
@@ -17,17 +14,18 @@ const NavbarComponent = () => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     width: '100%',
-    height: 50,
+    height: 70,
     // backgroundColor: '#0000FF',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    padding: 10,
   },
-  text:{
-    fontSize:20,
-    textAlign:'right',
+  text: {
+    fontSize: 24,
+    textAlign: 'left',
+    fontWeight:'bold'
   }
 });
 
