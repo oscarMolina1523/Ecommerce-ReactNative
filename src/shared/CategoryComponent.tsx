@@ -7,6 +7,7 @@ const categories = [
   { id: '2', name: 'bag' },
   { id: '3', name: 'glasses' },
   { id: '4', name: 'star' },
+  { id: '7', name: 'star' },
   { id: '5', name: 'camera' },
 ];
 const CategoryComponent = () => {
@@ -18,16 +19,16 @@ const CategoryComponent = () => {
         <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#F17547' }}>See all</Text>
       </View>
       <FlatList
-        style={styles.containerData}
         ref={flatListRef}
         data={categories}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
+        snapToAlignment="center"
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Ionicons size={50} style={{color:'#919191'}} name={item.name} />
+            <Ionicons size={40} style={{color:'#919191'}} name={item.name} />
           </View>
         )}
         // this is for add and gap between the elements
@@ -39,9 +40,11 @@ const CategoryComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
+    display:'flex',
+    flexDirection:'column',
     alignItems: "center",
     justifyContent: 'center',
-    width: '90%',
+    width: '100%',
     gap: 20
   },
   containerHeader: {
@@ -51,21 +54,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between'
   },
-  containerData: {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-  },
   item: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#D8D3D3',
-    height: 100,
-    width: 100,
+    height: 70,
+    width: 70,
     borderWidth: 2,
     borderRadius: 8,
+    marginHorizontal: 4,
   }
 });
 
