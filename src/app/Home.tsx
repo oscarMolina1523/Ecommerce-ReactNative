@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { Button, ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { RootStackParamList } from "../../App";
 import productsData from "../data/ProductsData";
 import CategoryComponent from "../shared/CategoryComponent";
@@ -25,7 +25,6 @@ const HomeView = () => {
           />
         ))}
       </View>
-      <Button title="Go to Details" onPress={() => navigation.navigate("Details")} />
     </ScrollView>
   );
 }
