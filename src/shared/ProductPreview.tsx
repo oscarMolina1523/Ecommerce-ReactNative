@@ -9,7 +9,7 @@ interface ProductPreviewProps {
 }
 const ProductPreview:React.FC<ProductPreviewProps> = ({product, onPress}) => {
   return (
-    <TouchableOpacity id={product.id} style={styles.container} onPress={onPress}>
+    <TouchableOpacity key={product.id} style={styles.container} onPress={onPress}>
       <View style={styles.containerChild}>
         <TouchableOpacity style={styles.button} onPress={() => alert('discount')}>
           <Text style={styles.buttonText}>{product.discount} % OFF</Text>
