@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSingleProductContext } from '../context/SingleProductContext';
 import { Product } from '../models/Products';
 
 interface ProductPreviewProps {
@@ -8,8 +9,15 @@ interface ProductPreviewProps {
   onPress: () => void;
 }
 const ProductPreview:React.FC<ProductPreviewProps> = ({product, onPress}) => {
+  const { fetchSingleProduct} =useSingleProductContext();
+
+  const handleClickProduct = (prodId:string) => {
+    fetchSingleProduct(prodId);
+    onPress();
+  }
+  
   return (
-    <TouchableOpacity key={product.id} style={styles.container} onPress={onPress}>
+    <TouchableOpacity key={product.id} style={styles.container} onPress={()=>handleClickProduct(product.id)}>
       <View style={styles.containerChild}>
         <TouchableOpacity style={styles.button} onPress={() => alert('discount')}>
           <Text style={styles.buttonText}>{product.discount} % OFF</Text>
@@ -33,7 +41,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     height: 240,
-    width: '48%',
+    width: '100%',
     backgroundColor: '#F8F8F8',
     borderRadius: 16,
     padding: 10,
