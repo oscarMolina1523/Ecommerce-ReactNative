@@ -6,7 +6,7 @@ const NavbarComponent = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hello Fola<Ionicons name="hand-left-outline" color="orange" size={20} /></Text>
-      <Text>Lets start shopping</Text>
+      <Text style={{color:'#AFAFAF', fontWeight:'bold'}}>Lets start shopping</Text>
     </View>
   );
 }
