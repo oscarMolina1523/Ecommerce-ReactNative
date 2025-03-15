@@ -19,10 +19,12 @@ const HomeView = () => {
       <CategoryComponent />
       <View style={styles.products}>
         {productsData.map(product => (
-          <ProductPreview
-            product={product}
-            onPress={() => navigation.navigate("Details")}
-          />
+          <View key={product.id} style={{width:'48%'}}>
+            <ProductPreview
+              product={product}
+              onPress={() => navigation.navigate("Details")}
+            />
+          </View>
         ))}
       </View>
     </ScrollView>
