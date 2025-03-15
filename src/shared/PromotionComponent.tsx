@@ -9,7 +9,7 @@ interface PromotionComponentProps {
 
 const PromotionComponent: React.FC<PromotionComponentProps> = ({ title, backgroundColor, imageUrl }) => {
   return (
-    <View style={[styles.container, { backgroundColor }]}> {/* Usar el color de fondo pasado como prop */}
+    <View style={[styles.container, { backgroundColor }]}> 
       <Text style={styles.text}>{title}</Text>
       <TouchableOpacity style={styles.button} onPress={() => alert(`Getting ${title}`)}>
         <Text style={styles.buttonText}>Get Now</Text>
