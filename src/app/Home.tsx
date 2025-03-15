@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingHorizontal: 10,
     gap: 20,
+    backgroundColor: '#FFFFFF',
   },
   products: {
     display: 'flex',
