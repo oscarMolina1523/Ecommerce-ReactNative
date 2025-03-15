@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import HomeView from './src/app/Home';
 import ProductDetail from './src/app/ProductDetail';
 
@@ -23,7 +23,7 @@ export default function App() {
         //   headerTitleStyle: { fontWeight: "bold" }, // Estilos del título
         // }}
         screenOptions={{
-          headerTitleAlign: "center", // Centra el título 
+          headerTitleAlign: "center" // Centra el título 
         }}
         initialRouteName="Home">
         <Stack.Screen options={{
@@ -44,18 +44,9 @@ export default function App() {
             </View>
           ),
         }}
-          name="Home" component={HomeView} />
+        name="Home" component={HomeView} />
         <Stack.Screen name="Details" component={ProductDetail} options={{ title: "Product Details" }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
