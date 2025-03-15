@@ -1,15 +1,20 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSingleProductContext } from '../context/SingleProductContext';
 
 const ProductDetail = () => {
+  const { product } = useSingleProductContext();
+
+  if (!product) return;
+
   return (
     <View style={styles.container}>
       <View style={styles.containerImg}>
-        <Image style={styles.image} source={{ uri: 'https://de-gdpr-exstatic-vivofs.vivo.com/sFhAQhTYYDsNOJz1/product/1726131237301/zip/img/webp/section13-pic1-mb.jpg.webp' }} />
+        <Image style={styles.image} source={product.image} />
       </View>
       <View style={styles.containerInfo}>
-        <Text style={{ color: '#404040', fontSize: 24, fontWeight: 'bold' }}>Apple Watch Serie 6</Text>
+        <Text style={{ color: '#404040', fontSize: 24, fontWeight: 'bold' }}>{product.name}</Text>
         <View style={{ width: '100%', flexDirection: 'row', gap: 4 }}>
           {[...Array(5)].map((_, index) => (
             <Ionicons key={index} size={25} style={{ color: 'yellow' }} name='star' />
@@ -21,18 +26,17 @@ const ProductDetail = () => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            // justifyContent: 'space-between',
+            gap:6
           }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>$5000</Text>
-            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#AFAFAF', textDecorationLine: 'line-through' }}>$5000</Text>
+            <Text style={{ fontSize: 22, fontWeight: 'bold' }}>${product.priceWithDiscount}</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#AFAFAF', textDecorationLine: 'line-through' }}>${product.originalPrice}</Text>
           </View>
           <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Available in stock</Text>
         </View>
         <Text style={{ fontSize: 22, fontWeight: 'bold' }}>About</Text>
         <Text style={{ fontSize: 16, color: '#AFAFAF' }}>
-          The upgraded S6 SiP runs up to 20 percent faster,
-          allowing apps to also launch 20 percent faster,
-          while maintaining the same all-day 18-hour battery life.
+          {product.description}
         </Text>
         <View style={{ height: 10 }} />
         <TouchableOpacity style={styles.button} onPress={() => alert('To perform this action you must Login or Register')}>
