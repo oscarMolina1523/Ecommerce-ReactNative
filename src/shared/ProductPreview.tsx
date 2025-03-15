@@ -5,10 +5,11 @@ import { Product } from '../models/Products';
 
 interface ProductPreviewProps {
   product:Product;
+  onPress: () => void;
 }
-const ProductPreview:React.FC<ProductPreviewProps> = ({product}) => {
+const ProductPreview:React.FC<ProductPreviewProps> = ({product, onPress}) => {
   return (
-    <View id={product.id} style={styles.container}>
+    <TouchableOpacity id={product.id} style={styles.container} onPress={onPress}>
       <View style={styles.containerChild}>
         <TouchableOpacity style={styles.button} onPress={() => alert('discount')}>
           <Text style={styles.buttonText}>{product.discount} % OFF</Text>
@@ -17,13 +18,13 @@ const ProductPreview:React.FC<ProductPreviewProps> = ({product}) => {
           <Ionicons size={25} style={{ color: '#919191' }} name='heart' />
         </View>
       </View>
-      <Image source={product.image} style={styles.image} />
+      <Image source={product.image} style={styles.image}/>
       <Text style={{ fontSize: 16, fontWeight: 'bold', color:'#3E3E3E', textAlign:'left'}}>{product.name}</Text>
       <View style={styles.containerChild}>
         <Text style={{fontSize:20, fontWeight:'bold'}}>${product.priceWithDiscount}</Text>
         <Text style={{fontSize:20, fontWeight:'bold', color:'#AFAFAF', textDecorationLine: 'line-through'}}>${product.originalPrice}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
