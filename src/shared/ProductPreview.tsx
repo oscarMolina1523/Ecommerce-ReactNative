@@ -1,24 +1,27 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-const RedmiNote = require('../../assets/images/RedmiNote.webp');
+import { Product } from '../models/Products';
 
-const ProductPreview = () => {
+interface ProductPreviewProps {
+  product:Product;
+}
+const ProductPreview:React.FC<ProductPreviewProps> = ({product}) => {
   return (
-    <View style={styles.container}>
+    <View id={product.id} style={styles.container}>
       <View style={styles.containerChild}>
         <TouchableOpacity style={styles.button} onPress={() => alert('discount')}>
-          <Text style={styles.buttonText}>50 % OFF</Text>
+          <Text style={styles.buttonText}>{product.discount} % OFF</Text>
         </TouchableOpacity>
         <View style={{ height: 35, width: 35, borderColor: '#D8D3D3', borderRadius: 25, borderWidth: 2, alignItems:'center', justifyContent:'center' }}>
           <Ionicons size={25} style={{ color: '#919191' }} name='heart' />
         </View>
       </View>
-      <Image source={RedmiNote} style={styles.image} />
-      <Text style={{ fontSize: 20, fontWeight: 'bold', color:'#3E3E3E'}}>Redmi Note 4</Text>
+      <Image source={product.image} style={styles.image} />
+      <Text style={{ fontSize: 16, fontWeight: 'bold', color:'#3E3E3E', textAlign:'left'}}>{product.name}</Text>
       <View style={styles.containerChild}>
-        <Text style={{fontSize:20, fontWeight:'bold'}}>$5000</Text>
-        <Text style={{fontSize:20, fontWeight:'bold', color:'#AFAFAF', textDecorationLine: 'line-through'}}>$5000</Text>
+        <Text style={{fontSize:20, fontWeight:'bold'}}>${product.priceWithDiscount}</Text>
+        <Text style={{fontSize:20, fontWeight:'bold', color:'#AFAFAF', textDecorationLine: 'line-through'}}>${product.originalPrice}</Text>
       </View>
     </View>
   );
@@ -35,7 +38,8 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems:'center',
     justifyContent:'flex-start',
-    gap:4
+    gap:4,
+    textAlign:'left'
   },
   image: {
     width: 100,
