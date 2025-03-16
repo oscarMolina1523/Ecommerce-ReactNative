@@ -8,7 +8,7 @@ const productsData: Product[] = [
     discount: 20,
     priceWithDiscount: 160,
     originalPrice: 200,
-    description: 'Un smartphone con características impresionantes.',
+    description: 'A powerful smartphone with an AMOLED display and a high-performance processor. It offers great battery life and an excellent camera for everyday use.',
   },
   {
     id: '2',
@@ -17,7 +17,7 @@ const productsData: Product[] = [
     discount: 15,
     priceWithDiscount: 850,
     originalPrice: 1000,
-    description: 'El último modelo de Samsung con tecnología avanzada.',
+    description: 'The latest Samsung flagship with a dynamic AMOLED 2X display, a pro-grade camera system, and an ultra-fast processor for seamless multitasking.',
   },
   {
     id: '3',
@@ -26,7 +26,7 @@ const productsData: Product[] = [
     discount: 10,
     priceWithDiscount: 350,
     originalPrice: 390,
-    description: 'Un reloj inteligente con seguimiento de salud y fitness.',
+    description: 'A smart wearable that helps you track your fitness, monitor your heart rate, and measure blood oxygen levels. Stay connected on the go with ease.',
   },
   {
     id: '4',
@@ -35,7 +35,7 @@ const productsData: Product[] = [
     discount: 25,
     priceWithDiscount: 150,
     originalPrice: 200,
-    description: 'Un smartphone con batería de larga duración y rendimiento sólido.',
+    description: 'A budget-friendly smartphone with an outstanding battery life of up to three days. Ideal for users who need a reliable and long-lasting device.',
   },
   {
     id: '5',
@@ -44,7 +44,7 @@ const productsData: Product[] = [
     discount: 30,
     priceWithDiscount: 120,
     originalPrice: 170,
-    description: 'Un smartphone con cámara de alta resolución y gran rendimiento.',
+    description: 'A smartphone designed for photography lovers, featuring a high-resolution AI camera and a sleek design. Capture every moment with stunning clarity.',
   },
   {
     id: '6',
@@ -53,7 +53,7 @@ const productsData: Product[] = [
     discount: 15,
     priceWithDiscount: 280,
     originalPrice: 330,
-    description: 'Un reloj inteligente asequible con muchas funciones.',
+    description: 'An affordable yet feature-packed smartwatch from Apple. Get fitness tracking, notifications, and seamless integration with your iPhone.',
   },
   {
     id: '7',
@@ -62,7 +62,7 @@ const productsData: Product[] = [
     discount: 20,
     priceWithDiscount: 500,
     originalPrice: 625,
-    description: 'Un smartphone con pantalla OLED y cámara de alta calidad.',
+    description: 'A premium smartphone with an ultra-smooth 144Hz OLED display and a 108MP camera for stunning photos. Perfect for entertainment and gaming.',
   },
   {
     id: '8',
@@ -71,7 +71,7 @@ const productsData: Product[] = [
     discount: 15,
     priceWithDiscount: 180,
     originalPrice: 210,
-    description: 'Un smartphone con pantalla AMOLED y gran rendimiento.',
+    description: 'An impressive mid-range smartphone with an AMOLED display, a powerful chipset, and a long-lasting battery for uninterrupted usage.',
   },
   {
     id: '9',
@@ -80,7 +80,7 @@ const productsData: Product[] = [
     discount: 20,
     priceWithDiscount: 100,
     originalPrice: 125,
-    description: 'Un smartphone asequible con buena cámara y batería.',
+    description: 'An entry-level smartphone that delivers great battery life, decent camera performance, and a smooth user experience for everyday tasks.',
   },
   {
     id: '10',
@@ -89,7 +89,7 @@ const productsData: Product[] = [
     discount: 5,
     priceWithDiscount: 400,
     originalPrice: 420,
-    description: 'El último modelo de Apple Watch con pantalla más grande y funciones avanzadas.',
+    description: 'The latest Apple Watch with a larger and more durable display, advanced health tracking features, and faster charging for all-day wearability.',
   },
 ];
 

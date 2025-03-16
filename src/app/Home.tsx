@@ -1,5 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import { RootStackParamList } from "../../App";
 import productsData from "../data/ProductsData";
 import CategoryComponent from "../shared/CategoryComponent";
 import NavbarComponent from "../shared/NavbarComponent";
@@ -8,6 +11,7 @@ import PromotionsCarousel from "../shared/PromotionsCarousel";
 
 
 const HomeView = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, "Home">>();
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <NavbarComponent />
@@ -15,9 +19,12 @@ const HomeView = () => {
       <CategoryComponent />
       <View style={styles.products}>
         {productsData.map(product => (
-          <ProductPreview
-            product={product}
-          />
+          <View key={product.id} style={{width:'48%'}}>
+            <ProductPreview
+              product={product}
+              onPress={() => navigation.navigate("Details")}
+            />
+          </View>
         ))}
       </View>
     </ScrollView>
@@ -31,9 +38,9 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    paddingTop: 40,
     paddingHorizontal: 10,
     gap: 20,
+    backgroundColor: '#FFFFFF',
   },
   products: {
     display: 'flex',
