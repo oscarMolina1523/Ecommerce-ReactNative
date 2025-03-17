@@ -1,8 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { useUserContext } from '../context/UserContext';
 
 const ProfileView = () => {
+  const {user} = useUserContext();
+  if (!user) return;
+
   return (
     <View style={styles.container}>
       <View style={[styles.containerChild, { backgroundColor: '#0601B4' }]} >
@@ -14,8 +18,8 @@ const ProfileView = () => {
             />
           </View>
           <View style={{ width: '60%', height: '100%', alignItems: 'flex-start', justifyContent: 'center', overflow: 'hidden', }}>
-            <Text style={{ color: '#FFFFFF', fontWeight: 'bold' }}>Itunuoluwa Abidoye</Text>
-            <Text style={{ color: '#FFFFFF' }}>@Itunuoluwa</Text>
+            <Text style={{ color: '#FFFFFF', fontWeight: 'bold', fontSize: 22, }}>{user.name}</Text>
+            <Text style={{ color: '#FFFFFF' }}>@{user.userName}</Text>
           </View>
         </View>
         <View style={{ flexDirection: 'row', width: '20%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
