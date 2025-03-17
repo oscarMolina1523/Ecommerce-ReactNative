@@ -1,4 +1,4 @@
-import { CartItem, Product } from "./Products";
+import { CartItem } from "./Products";
 
 export interface User {
   id: string,
@@ -8,6 +8,5 @@ export interface User {
   country: string,
   city: string,
   phoneNumber: string,
-  wishList: Product[],
   cart: CartItem[]
 }
