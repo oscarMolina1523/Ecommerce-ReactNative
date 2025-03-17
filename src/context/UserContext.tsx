@@ -9,7 +9,8 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // User per deffect
   const defaultUser : User = {
     id: "1",
-    name: "John Doe",
+    name: "John Flex Doe Cooper",
+    image:"https://i.pinimg.com/474x/48/6c/a0/486ca00640b169300b48e9ceacd8e401.jpg",
     userName: "johndoe",
     email: "johndoe@example.com",
     country: "USA",
