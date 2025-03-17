@@ -1,4 +1,5 @@
-import { Product } from "../models/Products";
+import { CartItem, Product } from "../models/Products";
+import { User } from "../models/User";
 
 
 export interface SingleProductContextType {
@@ -6,4 +7,11 @@ export interface SingleProductContextType {
   loadingProd: boolean;
   errorProd?: string;
   fetchSingleProduct: (productId: string) => Promise<void>;
+}
+
+export interface UserContextType {
+  user: User | null;
+  setUser: (user: User) => void;
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (itemId: string) => void;
 }
