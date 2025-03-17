@@ -2,14 +2,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity, View } from 'react-native';
+import CartView from './src/app/Cart';
 import HomeView from './src/app/Home';
 import ProductDetail from './src/app/ProductDetail';
+import ProfileView from './src/app/Profile';
 import { SingleProductProvider } from './src/context/SingleProductContext';
 
 // Definir los parámetros de cada pantalla
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  Profile:undefined;
+  Cart:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -28,7 +32,7 @@ export default function App() {
             headerTitleAlign: "center" // Centra el título 
           }}
           initialRouteName="Home">
-          <Stack.Screen options={{
+          <Stack.Screen options={({ navigation }) => ({
             title: "Home", // Cambia el título de la pantalla
             headerLeft: () => (
               <TouchableOpacity onPress={() => alert("Menú abierto")}>
@@ -37,17 +41,19 @@ export default function App() {
             ),
             headerRight: () => (
               <View style={{ flexDirection: "row", gap: 15, marginRight: 10 }}>
-                {/* <TouchableOpacity onPress={() => alert("Buscar")}>
-                  <Ionicons name="search" size={28} color="black" />
-                </TouchableOpacity> */}
-                <TouchableOpacity onPress={() => alert("Profile")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
+                  <Ionicons name="cart" size={28} color="black" />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
                   <Ionicons name="person-circle-outline" size={28} color="black" />
                 </TouchableOpacity>
               </View>
             ),
-          }}
+          })}
             name="Home" component={HomeView} />
           <Stack.Screen name="Details" component={ProductDetail} options={{ title: "Product Details" }} />
+          <Stack.Screen name="Profile" component={ProfileView} options={{ title: "Profile" }} />
+          <Stack.Screen name="Cart" component={CartView} options={{ title: "My Cart" }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SingleProductProvider>

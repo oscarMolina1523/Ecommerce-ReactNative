@@ -6,8 +6,8 @@ const ProfileView = () => {
   return (
     <View style={styles.container}>
       <View style={[styles.containerChild, { backgroundColor: '#0601B4' }]} >
-        <View style={{ flexDirection: 'row', width: '70%', height: '100%', alignItems: 'center', justifyContent: 'space-between', gap: 4 }}>
-          <View style={{ width: '40%', height: '80%', borderRadius: '50%', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <View style={{ flexDirection: 'row', width: '80%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+          <View style={{ width: '30%', height: '80%', borderRadius: '50%', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <Image
               source={{ uri: 'https://i.pinimg.com/474x/48/6c/a0/486ca00640b169300b48e9ceacd8e401.jpg' }}
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
@@ -18,7 +18,7 @@ const ProfileView = () => {
             <Text style={{ color: '#FFFFFF' }}>@Itunuoluwa</Text>
           </View>
         </View>
-        <View style={{ flexDirection: 'row', width: '30%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flexDirection: 'row', width: '20%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
           <Ionicons size={30} style={{ color: '#FFFFFF' }} name='pencil' />
         </View>
       </View>
