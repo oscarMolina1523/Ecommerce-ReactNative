@@ -2,11 +2,22 @@ import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useSingleProductContext } from '../context/SingleProductContext';
+import { useUserContext } from '../context/UserContext';
+import { CartItem } from '../models/Products';
 
 const ProductDetail = () => {
   const { product } = useSingleProductContext();
+  const {addToCart} = useUserContext();
 
   if (!product) return;
+
+  const handleCart=()=>{
+    const cartItem: CartItem = {
+      ...product,
+      quantity: 1, 
+    };
+    addToCart(cartItem); 
+  }
 
   return (
     <View style={styles.container}>
@@ -39,7 +50,7 @@ const ProductDetail = () => {
           {product.description}
         </Text>
         <View style={{ height: 10 }} />
-        <TouchableOpacity style={styles.button} onPress={() => alert('To perform this action you must Login or Register')}>
+        <TouchableOpacity style={styles.button} onPress={handleCart}>
           <Text style={styles.buttonText}>Add to Cart</Text>
         </TouchableOpacity>
       </View>
