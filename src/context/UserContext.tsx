@@ -35,8 +35,17 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }));
   };
 
+  const updateCartItemQuantity = (itemId: string, newQuantity: number) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      cart: prevUser.cart.map((item) =>
+        item.id === itemId ? { ...item, quantity: newQuantity } : item
+      ),
+    }));
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser , addToCart, removeFromCart }}>
+    <UserContext.Provider value={{ user, setUser , addToCart, removeFromCart, updateCartItemQuantity }}>
       {children}
     </UserContext.Provider>
   );
