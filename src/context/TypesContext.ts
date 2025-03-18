@@ -14,4 +14,5 @@ export interface UserContextType {
   setUser: (user: User) => void;
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemId: string) => void;
+  updateCartItemQuantity: (itemId: string, newQuantity: number) => void;
 }
