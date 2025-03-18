@@ -13,6 +13,7 @@ export interface UserContextType {
   user: User | null;
   setUser: (user: User) => void;
   addToCart: (item: CartItem) => void;
+  isInCart: (item: string) => boolean;
   removeFromCart: (itemId: string) => void;
   updateCartItemQuantity: (itemId: string, newQuantity: number) => void;
 }
