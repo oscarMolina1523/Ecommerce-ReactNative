@@ -4,8 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity, View } from 'react-native';
 import CartView from './app/Cart';
 import HomeView from './app/Home';
+import LoginView from './app/Login';
 import ProductDetail from './app/ProductDetail';
 import ProfileView from './app/Profile';
+import RegisterView from './app/Register';
 
 // Definir los parámetros de cada pantalla
 export type RootStackParamList = {
@@ -13,6 +15,8 @@ export type RootStackParamList = {
   Details: undefined;
   Profile: undefined;
   Cart: undefined;
+  Login: undefined;
+  Register: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +34,8 @@ const Navigation = () => {
           headerTitleAlign: "center" // Centra el título 
         }}
         initialRouteName="Home">
+        <Stack.Screen name="Login" component={LoginView} options={{ title: "Login" }} />
+        <Stack.Screen name="Register" component={RegisterView} options={{ title: "Register" }} />
         <Stack.Screen options={({ navigation }) => ({
           title: "Home", // Cambia el título de la pantalla
           headerLeft: () => (
