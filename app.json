@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "tech-ecommerce",
-    "slug": "tech-ecommerce",
+    "slug": "ecommerce",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,6 +23,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c398dcb6-ed9f-4e4a-bb41-e61ae9f968ec"
+      }
+    },
+    "owner": "oscarmolina",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c398dcb6-ed9f-4e4a-bb41-e61ae9f968ec"
     }
   }
 }
