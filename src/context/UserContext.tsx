@@ -28,6 +28,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }));
   };
 
+  const isInCart = (itemId: string) => {
+    return user.cart.some((item) => item.id === itemId);
+  };
+
   const removeFromCart = (itemId: string) => {
     setUser ((prevUser ) => ({
       ...prevUser ,
@@ -45,7 +49,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser , addToCart, removeFromCart, updateCartItemQuantity }}>
+    <UserContext.Provider value={{ user, setUser , addToCart, removeFromCart, updateCartItemQuantity, isInCart }}>
       {children}
     </UserContext.Provider>
   );
