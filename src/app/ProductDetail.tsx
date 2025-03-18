@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useSingleProductContext } from '../context/SingleProductContext';
 import { useUserContext } from '../context/UserContext';
@@ -7,17 +7,21 @@ import { CartItem } from '../models/Products';
 
 const ProductDetail = () => {
   const { product } = useSingleProductContext();
-  const {addToCart} = useUserContext();
+  const { addToCart, removeFromCart, isInCart } = useUserContext();
+  const [showModal, setShowModal] = useState(false);
 
   if (!product) return;
 
-  const handleCart=()=>{
-    const cartItem: CartItem = {
-      ...product,
-      quantity: 1, 
-    };
-    addToCart(cartItem); 
-  }
+  const handleCart = () => {
+    if (isInCart(product.id)) {
+      removeFromCart(product.id);
+    } else {
+      const cartItem: CartItem = { ...product, quantity: 1 };
+      addToCart(cartItem);
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 2000);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -38,7 +42,7 @@ const ProductDetail = () => {
             flexDirection: 'row',
             alignItems: 'center',
             // justifyContent: 'space-between',
-            gap:6
+            gap: 6
           }}>
             <Text style={{ fontSize: 22, fontWeight: 'bold' }}>${product.priceWithDiscount}</Text>
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#AFAFAF', textDecorationLine: 'line-through' }}>${product.originalPrice}</Text>
@@ -51,9 +55,18 @@ const ProductDetail = () => {
         </Text>
         <View style={{ height: 10 }} />
         <TouchableOpacity style={styles.button} onPress={handleCart}>
-          <Text style={styles.buttonText}>Add to Cart</Text>
+          <Text style={styles.buttonText}>
+            {isInCart(product.id) ? "Remove from Cart" : "Add to Cart"}
+          </Text>
         </TouchableOpacity>
       </View>
+
+      {/* Modal de "Agregado con éxito" */}
+      {showModal && (
+        <View style={styles.modal}>
+          <Text style={styles.modalText}>Agregado con éxito</Text>
+        </View>
+      )}
     </View>
   );
 }
@@ -94,14 +107,25 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    width:'100%',
-    height:50,
-    alignItems:'center',
+    width: '100%',
+    height: 50,
+    alignItems: 'center',
   },
   buttonText: {
     color: '#FFFFFF',
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  modal: {
+    position: 'absolute',
+    bottom: 50,
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    padding: 15,
+    borderRadius: 10,
+  },
+  modalText: {
+    color: '#FFFFFF',
+    fontSize: 18,
   },
 });
 
