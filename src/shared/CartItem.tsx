@@ -1,20 +1,25 @@
+import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useUserContext } from "../context/UserContext";
 import { CartItem } from "../models/Products";
 
 interface CartItemProps {
-  product:CartItem;
+  product: CartItem;
 }
 
-const CartItemComponent:React.FC<CartItemProps> = ({product}) => {
-  const { updateCartItemQuantity  } = useUserContext();
+const CartItemComponent: React.FC<CartItemProps> = ({ product }) => {
+  const { updateCartItemQuantity, removeFromCart, } = useUserContext();
 
   const updateQuantity = (newQuantity: number) => {
     if (newQuantity > 0) {
       updateCartItemQuantity(product.id, newQuantity);
     }
   };
+
+  const removeItem=(id: string)=>{
+    removeFromCart(id);
+  }
 
   return (
     <View style={styles.containerChild}>
@@ -27,7 +32,10 @@ const CartItemComponent:React.FC<CartItemProps> = ({product}) => {
       <View style={{ width: '70%', height: '100%', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
         <Text style={{ color: '#404040', fontSize: 20, fontWeight: 'bold' }}>{product.name}</Text>
         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>${product.priceWithDiscount}</Text>
-        <View style={{ width: '100%', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
+        <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <TouchableOpacity onPress={() => removeItem(product.id)} style={{ height: 35, width: 35, borderColor: 'red', borderRadius: 25, borderWidth: 2, alignItems: 'center', justifyContent: 'center' }}>
+            <Ionicons size={25} style={{ color: 'red' }} name='trash' />
+          </TouchableOpacity>
           <View style={{
             flexDirection: 'row',
             alignItems: 'center',
