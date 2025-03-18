@@ -1,11 +1,16 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { useUserContext } from '../context/UserContext';
 
 const NavbarComponent = () => {
+  const {user}=useUserContext();
+
+  if (!user) return;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello Fola<Ionicons name="hand-left-outline" color="orange" size={20} /></Text>
+      <Text style={styles.text}>Hello {user.userName}<Ionicons name="hand-left-outline" color="orange" size={20} /></Text>
       <Text style={{color:'#AFAFAF', fontWeight:'bold'}}>Lets start shopping</Text>
     </View>
   );
